@@ -1,31 +1,19 @@
 AC_DEFUN([AC_BASE_CHECKS],
 [AC_REQUIRE([AC_PROG_CC])
+dnl check that running user is not root
+AC_MSG_CHECKING([that calling user is not root])
+RUNNING_USER="$USER"
+if test -z "$RUNNING_USER"; then
+  RUNNING_USER=`whoami`
+fi
+if test $RUNNING_USER = "root"; then
+  AC_MSG_ERROR([configure script must not be run with root user!])
+else
+  AC_MSG_RESULT([ok])
+fi
 
 dnl check for base compilers
 AC_CANONICAL_HOST()
-
-dnl Detect the target toolchain
-AC_MSG_CHECKING([target toolchain])
-case "${host_os}" in
-  linux*)
-    TARGET_TOOLCHAIN="linux"
-    ;;
-  mingw*)
-    TARGET_TOOLCHAIN="mingw"
-    ;;
-  cygwin*)
-    TARGET_TOOLCHAIN="cygwin"
-    ;;
-  darwin*)
-    TARGET_TOOLCHAIN="darwin"
-    ;;
-  *)
-    TARGET_TOOLCHAIN="other"
-    ;;
-esac
-AC_MSG_RESULT([$TARGET_TOOLCHAIN])
-AC_SUBST(TARGET_TOOLCHAIN)
-
 # AC_CANONICAL_HOST needs those files
 AUTOCONF_INSTALL_FILES="config.guess config.sub install-sh m4/*.m4"
 AC_SUBST(AUTOCONF_INSTALL_FILES)
@@ -35,6 +23,7 @@ AC_PROG_INSTALL()
 AC_CHECK_TOOL([AR],[ar],no)
 AC_SUBST(AR)
 AC_CHECK_OCAML_COMPILERS()
+
 
 dnl add some flags
 AC_DETECT_PIC_FLAGS()
