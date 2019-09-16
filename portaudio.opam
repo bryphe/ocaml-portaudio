@@ -6,7 +6,7 @@ authors: "The Savonet Team <savonet-users@lists.sourceforge.net>"
 homepage: "https://github.com/savonet/ocaml-portaudio"
 build: [
   ["./bootstrap"] {dev}
-  ["./configure" "--prefix" prefix]
+  ["./configure" "--prefix" prefix "--disable-ldconf"]
   [make "clean"] {dev}
   [make]
 ]
