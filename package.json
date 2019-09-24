@@ -23,11 +23,8 @@
     "ocaml": "~4.7.0"
   },
   "dependencies": {
-    "@opam/dune": "1.7.3",
-    "esy-portaudio": "*"
-  },
-  "resolutions": {
-    "esy-portaudio": "link:../esy-portaudio"
+    "@opam/dune": "^1.7.3",
+    "esy-portaudio": "^19.0.6001",
   },
   "devDependencies": {
     "ocaml": "~4.7.0"
