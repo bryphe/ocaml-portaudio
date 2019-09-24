@@ -4,24 +4,10 @@ version: "0.2.1"
 maintainer: "Romain Beauxis <toots@rastageeks.org>"
 authors: "The Savonet Team <savonet-users@lists.sourceforge.net>"
 homepage: "https://github.com/savonet/ocaml-portaudio"
-build: [
-  ["./bootstrap"] {dev}
-  ["./configure" "--prefix" prefix]
-  [make "clean"] {dev}
-  [make]
-]
-install: [
-  [make "install"]
-]
-depends: [
-  "ocaml"
-  "ocamlfind" {build}
-]
-depexts: [
-  ["portaudio-dev"] {os-distribution = "alpine"}
-  ["portaudio"] {os = "macos" & os-distribution = "homebrew"}
-  ["portaudio19-dev"] {os-family = "debian"}
-]
+build: [ ]
+install: [ ]
+depends: [ ]
+depexts: [ ]
 bug-reports: "https://github.com/savonet/ocaml-portaudio/issues"
 dev-repo: "git+https://github.com/savonet/ocaml-portaudio.git"
 synopsis:
