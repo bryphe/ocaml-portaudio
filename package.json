@@ -1,0 +1,35 @@
+{
+  "name": "ocaml-portaudio",
+  "version": "1.0.0",
+  "description": "Portaudio bindings for OCaml",
+  "license": "MIT",
+  "scripts": {
+    "format": "esy dune build @fmt --auto-promote"
+  },
+  "esy": {
+    "build": [
+      [
+        "dune",
+        "build",
+        "-p",
+        "portaudio"
+      ]
+    ],
+    "install": [
+      "esy-installer"
+    ]
+  },
+  "peerDependencies": {
+    "ocaml": "~4.7.0"
+  },
+  "dependencies": {
+    "@opam/dune": "1.7.3",
+    "esy-portaudio": "*"
+  },
+  "resolutions": {
+    "esy-portaudio": "link:../esy-portaudio"
+  },
+  "devDependencies": {
+    "ocaml": "~4.7.0"
+  }
+}

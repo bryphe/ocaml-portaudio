@@ -1,0 +1,12 @@
+(library
+    (name portaudio)
+    (public_name portaudio)
+    (library_flags (:include flags.sexp))
+    (libraries threads)
+    (c_names portaudio_stubs)
+    (c_flags (:include c_flags.sexp)))
+
+(rule
+    (targets c_flags.sexp flags.sexp)
+    (deps (:discover ../config/discover.exe))
+    (action (run %{discover})))
