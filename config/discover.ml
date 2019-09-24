@@ -31,10 +31,13 @@ let flags =
     match get_os with
     | Windows ->  []
         @ ccopt(libPath)
+        @ cclib("-lportaudio")
     | Linux -> []
         @ ccopt(libPath)
+        @ cclib("-lportaudio")
     | _ -> []
         @ ccopt(libPath)
+        @ cclib("-lportaudio")
 ;;
 
 (*let cxx_flags =
